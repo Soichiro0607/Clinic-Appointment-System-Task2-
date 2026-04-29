@@ -10,7 +10,7 @@
                 {% for slot in slots %}
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <span>
-                            {{ slot.date }} {{ slot.time }}
+                            {{ slot.date |date:"F d, Y" }} {{ slot.time |time:"h:i" }}
                         </span>
                         <a href="{% url 'book_appointment' slot.id %}" class="btn btn-primary btn-sm">
                             Book

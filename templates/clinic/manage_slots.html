@@ -14,7 +14,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <div>
                             <strong>{{ slot.doctor.name }}</strong><br>
-                            {{ slot.date }} {{ slot.time }}<br>
+                            {{ slot.date |date:"F d, Y" }} {{ slot.time |time:"h:i" }}<br>
                             {% if slot.is_booked %}
                                 <span class="badge bg-danger">Booked</span>
                             {% else %}

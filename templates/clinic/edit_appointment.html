@@ -12,7 +12,7 @@
                 <div class="alert alert-info">
                     <strong>Current appointment:</strong><br>
                     {{ appointment.slot.doctor.name }} -
-                    {{ appointment.slot.date }} {{ appointment.slot.time }}
+                    {{ appointment.slot.date |date:"F d, Y" }} {{ appointment.slot.time |time:"h:i" }}
                 </div>
                 <form method="post">
                     {% csrf_token %}

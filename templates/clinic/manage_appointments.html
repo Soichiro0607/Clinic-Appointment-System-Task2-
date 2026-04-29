@@ -13,8 +13,8 @@
                         <div>
                             <strong>Patient:</strong> {{ appointment.patient.username }}<br>
                             <strong>Doctor:</strong> {{ appointment.slot.doctor.name }}<br>
-                            <strong>Date:</strong> {{ appointment.slot.date }}<br>
-                            <strong>Time:</strong> {{ appointment.slot.time }}
+                            <strong>Date:</strong> {{ appointment.slot.date|date:"F d, Y" }}<br>
+                            <strong>Time:</strong> {{ appointment.slot.time|time:"H:i" }}
                         </div>
                         <div>
                             <a href="{% url 'admin_cancel_appointment' appointment.id %}"
