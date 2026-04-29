@@ -1,0 +1,13 @@
+{% extends 'clinic/base.html' %}
+{% block content %}
+<h1 class="mb-3">Doctors</h1>
+
+<ul class="list-group">
+    {% for doctor in doctors %}
+        <li class="list-group-item d-flex justify-content-between">
+            <span>{{ doctor.name }} - {{ doctor.specialty }}</span>
+            <a href="{% url 'slot_list' doctor.id %}" class="btn btn-primary btn-sm">View</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'clinic/base.html' %}
+{% block title %}Add Slot{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">Add Appointment Slot</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Doctor</label>
+                        <select name="doctor" class="form-select">
+                            {% for doctor in doctors %}
+                                <option value="{{ doctor.id }}">
+                                    {{ doctor.name }} - {{ doctor.get_specialty_display }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Time</label>
+                        <input type="time" name="time" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Add Slot</button>
+                </form>
+                <div class="mt-3 text-center">
+                    <a href="{% url 'manage_slots' %}">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

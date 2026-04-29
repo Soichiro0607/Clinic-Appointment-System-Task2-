@@ -1,0 +1,55 @@
+{% extends 'clinic/base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+
+<h1 class="mb-4">Admin Dashboard</h1>
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h5 class="card-title">Doctors</h5>
+                <p class="display-6">{{ doctors_count }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h5 class="card-title">Slots</h5>
+                <p class="display-6">{{ slots_count }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h5 class="card-title">Appointments</h5>
+                <p class="display-6">{{ appointments_count }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h5 class="card-title">Patients</h5>
+                <p class="display-6">{{ patients_count }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h4 class="mb-0">Management Menu</h4>
+    </div>
+    <div class="card-body d-grid gap-2">
+        <a href="{% url 'manage_doctors' %}" class="btn btn-primary">Manage Doctors</a>
+        <a href="{% url 'manage_slots' %}" class="btn btn-success">Manage Appointment Slots</a>
+        <a href="{% url 'manage_appointments' %}" class="btn btn-warning">View All Appointments</a>
+        <a href="{% url 'manage_patients' %}" class="btn btn-danger">Manage Patients</a>
+    </div>
+</div>
+<div class="mt-3">
+    <a href="{% url 'doctor_list' %}" class="btn btn-secondary">Back to Site</a>
+</div>
+
+{% endblock %}

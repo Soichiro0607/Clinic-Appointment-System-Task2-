@@ -1,0 +1,19 @@
+{% extends 'clinic/base.html' %}
+
+{% block content %}
+<h1>My Appointments</h1>
+
+<ul class="list-group">
+    {% for appointment in appointments %}
+        <li class="list-group-item">
+            {{ appointment.slot.doctor.name }} -
+            {{ appointment.slot.date }} {{ appointment.slot.time }}
+
+            <div class="mt-2">
+                <a href="{% url 'edit_appointment' appointment.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'cancel_appointment' appointment.id %}" class="btn btn-danger btn-sm">Cancel</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

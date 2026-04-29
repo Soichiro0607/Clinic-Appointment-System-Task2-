@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Clinic System{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'doctor_list' %}">Piki Ora Medical Centre Clinic</a>
+        <div>
+            <a href="{% url 'doctor_list' %}" class="btn btn-light btn-sm">Home</a>
+            <a href="{% url 'my_appointments' %}" class="btn btn-light btn-sm">My Appointments</a>
+            {% if user.is_staff %}
+                <a href="{% url 'dashboard' %}" class="btn btn-warning">Dashboard</a>
+            {% endif %}
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

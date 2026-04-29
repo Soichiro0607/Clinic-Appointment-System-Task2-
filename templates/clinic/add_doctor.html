@@ -1,0 +1,40 @@
+{% extends 'clinic/base.html' %}
+{% block title %}Add Doctor{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Add Doctor</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter doctor name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Specialty</label>
+                        <select name="specialty" class="form-select">
+                            <option value="GP">General Practice</option>
+                            <option value="SUR">Surgery</option>
+                            <option value="PED">Pediatrics</option>
+                            <option value="CAR">Cardiology</option>
+                            <option value="DER">Dermatology</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">
+                        Add Doctor
+                    </button>
+                </form>
+                <div class="mt-3 text-center">
+                    <a href="{% url 'manage_doctors' %}">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

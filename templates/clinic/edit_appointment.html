@@ -1,0 +1,42 @@
+{% extends 'clinic/base.html' %}
+{% block title %}Edit Appointment{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning">
+                <h4 class="mb-0">Edit Appointment</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <strong>Current appointment:</strong><br>
+                    {{ appointment.slot.doctor.name }} -
+                    {{ appointment.slot.date }} {{ appointment.slot.time }}
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Select New Slot</label>
+                        <select name="slot" class="form-select">
+                            {% for slot in available_slots %}
+                                <option value="{{ slot.id }}">
+                                    {{ slot.doctor.name }} -
+                                    {{ slot.date }} {{ slot.time }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100">
+                        Update Appointment
+                    </button>
+                </form>
+                <div class="mt-3 text-center">
+                    <a href="{% url 'my_appointments' %}">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
