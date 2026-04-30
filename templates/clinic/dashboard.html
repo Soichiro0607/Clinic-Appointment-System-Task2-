@@ -41,11 +41,11 @@
     <div class="card-header">
         <h4 class="mb-0">Management Menu</h4>
     </div>
-    <div class="card-body d-grid gap-2">
-        <a href="{% url 'manage_doctors' %}" class="btn btn-primary">Manage Doctors</a>
-        <a href="{% url 'manage_slots' %}" class="btn btn-success">Manage Appointment Slots</a>
-        <a href="{% url 'manage_appointments' %}" class="btn btn-warning">View All Appointments</a>
-        <a href="{% url 'manage_patients' %}" class="btn btn-danger">Manage Patients</a>
+    <div class="card-body d-flex flex-column gap-2 align-items-start">
+        <a href="{% url 'manage_doctors' %}" class="btn btn-primary btn-sm">Manage Doctors</a>
+        <a href="{% url 'manage_slots' %}" class="btn btn-success btn-sm">Manage Appointment Slots</a>
+        <a href="{% url 'manage_appointments' %}" class="btn btn-warning btn-sm">View All Appointments</a>
+        <a href="{% url 'manage_patients' %}" class="btn btn-danger btn-sm">Manage Patients</a>
     </div>
 </div>
 <div class="mt-3">
